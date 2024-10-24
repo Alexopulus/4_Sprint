@@ -17,6 +17,7 @@ public class OrderPage {
         this.driver = driver;
     }
 
+//Локаторы
     private By nameInput = By.xpath("//input[@placeholder='* Имя']");
     private By familyInput = By.xpath(("//input[@placeholder='* Фамилия']"));
     private By addressInput = By.xpath("//input[@placeholder='* Адрес: куда привезти заказ']");
@@ -24,30 +25,31 @@ public class OrderPage {
     private By phoneInput = By.xpath("//input[@placeholder='* Телефон: на него позвонит курьер']");
     private By submitButton = By.xpath("//button[text()='Далее']");
 
+//Метод для ввода имени
     public void typeNameInput(String name) {
         driver.findElement(nameInput).sendKeys(name);
     }
-
+//Метод для ввода фамилии
     public void typeFamilyInput(String family) {
         driver.findElement(familyInput).sendKeys(family);
     }
-
+//Метод для ввода адреса
     public void typeAddressInput(String address) {
         driver.findElement(addressInput).sendKeys(address);
     }
-
+//Метод для выбора станции метро
     public void choiceSubway(String station) {
         driver.findElement(subwayInput).sendKeys(station, Keys.ARROW_DOWN, Keys.ENTER);
     }
-
+//Метод для ввода номера телефона
     public void typePhoneInput(String phone) {
-        new WebDriverWait(driver, Duration.ofSeconds(3))
+        new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.visibilityOfElementLocated(phoneInput));
         driver.findElement(phoneInput).sendKeys(phone);
     }
-
+//Метод для кнопки далее
     public void clickSubmitButton() {
-        new WebDriverWait(driver, Duration.ofSeconds(4))
+        new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.visibilityOfElementLocated(submitButton));
         driver.findElement(submitButton).click();
     }

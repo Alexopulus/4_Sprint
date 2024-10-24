@@ -57,8 +57,7 @@ public class FaqQuestionsTest extends BaseUITest {
         questionElement.click();
 
 //Сравниваем ожидаемый ответ с тем, что открылось на странице в ответе
-        WebElement answerElement = new WebDriverWait(driver, Duration.ofSeconds(3))
-                .until(ExpectedConditions.visibilityOf(objMainPage.checkFaqAnswer()));
+        WebElement answerElement = objMainPage.checkFaqAnswer();
         assertEquals("Данные не совпадают", expectedAnswer, answerElement.getText());
     }
 }
